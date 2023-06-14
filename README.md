@@ -1,8 +1,8 @@
 User's Manual for Project:
 
-*Disclaimer: for the purposes of this demonstration no real money is being used when depositing funds or buying items. There is also no "checkout" page is to avoid inputting credit card information. You can add funds in the "profile" page*
+*Disclaimer: for the purposes of this demonstration no real money is being used when depositing funds or buying items. There is also no "checkout" page as to avoid inputting credit card information. You can add funds in the "profile" page*
 
-Welcome to IKO! The idea behind this project was to create a one stop shop to buy and sell vintage clothing, making thrift shopping more accessible. Our project is meant to be compiled, configured, and used within the CS50 IDE using the "flask run" command within the terminal. 
+Welcome to IKO! The idea behind this project was to create a one-stop shop to buy and sell vintage clothing, making thrift shopping more accessible. 
 
 Upon running flask, you will be directed to IKO's login page. You will first need to register an account by clicking the "register" button in the top right corner and filling in the required information. After registering, you will be sent to the log in page where you can enter your username and password to enter IKO.
 
@@ -22,6 +22,3 @@ The circular button with our IKO logo in the middle will take you back to the ho
 "About" is where you can find more information about our company and its co-founders. You can also find our emails if you would like to contact us.
 
 "Profile" is where you can edit information about yourself, see your listings, view the current status of your listings, remove listings, deposit additional funds, and log out of your profile.
-
-Walkthrough:
-https://youtu.be/ov68rPASLtc
