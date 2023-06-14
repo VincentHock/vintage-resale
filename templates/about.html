@@ -1,0 +1,43 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block main %}
+<!-- Company Description -->
+    <h1>About Us</h1>
+    <p>
+        IKO was founded in 2021 by Vincent Hock and Antonio Gracias as part of their CS50 final project. 
+        <br>
+        With vintage clothing on the rise, they set out to create a platform to make thrifting easy. No more long lines. No more bins. No hassle. IKO.
+    </p>
+    <h2>Our Team:</h2>
+    <!-- Profile Cards for Founders -->
+    <div class = "about-row">
+        <div class = "about-column">
+            <div class = "about-card">
+                <img src = "static/antonio.png" alt="Antonio" style="width:100%">
+                <div class = "about-container">
+                    <h2>Antonio Gracias</h2>
+                    <p class = "title">Co-Founder</p>
+                    <p>Antonio Gracias is currently a Freshman at Harvard University where he plans to concentrate in Economics and minor in astrophysics. He is originally from Chicago, likes to play soccer, read, ski, snowboard, and eat good food.</p>
+                    <p>agracias@college.harvard.edu</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class = "about-column">
+            <div class = "about-card">
+                <img src = "static/vincent.png" alt="Vinny" style="width:100%">
+                <div class = "about-container">
+                    <h2>Vincent Hock</h2>
+                    <p class = "title">Co-Founder</p>
+                    <p>Vincent, known affectionately as Vinny, hails from the greatest city on Earth: Boston, Massachusetts. When he's not watching their sports teams dominate the United States, you can find Vinny doing work at Harvard libraries or playing a variety of club sports at the college.</p>
+                    <p>vhock@college.harvard.edu</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

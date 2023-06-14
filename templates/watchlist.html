@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Watchlist
+{% endblock %}
+
+{% block main %}
+<h1>My Watchlist</h1>
+<div class="container">
+    <div class="row">
+        <!-- For loop to show watchlist cards -->
+        {% for listing in items %}
+        <div class="col-sm-3">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="static/{{listing.image}}" alt="Product Image">
+                <div class="card-body">
+                    <h4 class="card-title">{{listing.title}}</h4>
+                    <p class="card-text">{{listing.description}}</p>
+                    <p class="card-text">{{listing.decades}}</p>
+                    <p class="card-text">{{listing.size}}</p>
+                    <p class="price">{{listing.price | int | usd}}</p>
+                    {% if listing.active == "True" %}
+                    <!-- If the item is active show buy form -->
+                    <form action="/buy" method="post">
+                        <input type="hidden" name="id" value="{{listing.id}}">
+                        <input class="btn btn-dark" type="submit" value="Buy Now">
+                    </form>
+                    {% endif %}
+                    <!-- If item has been removed from market show as expired -->
+                    {% if listing.active == "False" %}
+                        <p class="card-text">Expired</p>
+                    {% endif %}
+                    <br>
+                    <!-- Form to unwatch an item -->
+                    <form action="/unwatch" method="post">
+                        <input type="hidden" name="id" value="{{listing.id}}">
+                        <input class="btn btn-dark" type="submit" value="Remove From Watchlist">
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

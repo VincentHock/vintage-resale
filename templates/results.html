@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Browse
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <!-- For loop to show listings based on search selections -->
+        {% for listing in selections %}
+        <div class="col-sm-3">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top img-fluid" src="static/{{listing.image}}" alt="Product Image">
+                <div class="card-block">
+                    <h4 class="card-title">{{listing.title}}</h4>
+                    <p class="card-text">{{listing.description}}</p>
+                    <p class="card-text">{{listing.decades}}</p>
+                    <p class="card-text">{{listing.size}}</p>
+                    <p class="price">{{listing.price | int | usd}}</p>
+                    <form action="/buy" method="post">
+                        <input type="hidden" name="id" value="{{listing.id}}">
+                        <input class="btn btn-dark" type="submit" value="Buy Now">
+                    </form>
+                    <br>
+                    <!-- Add card to watchlist -->
+                    <form action="/watchlist" method="post">
+                        <input type="hidden" name="id" value="{{listing.id}}">
+                        <input class="btn btn-dark" type="submit" value="Add to Watchlist">
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

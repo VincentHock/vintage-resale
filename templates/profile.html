@@ -1,0 +1,85 @@
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block main %}
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+  <div class="profile-card p-4">
+    <div class="container">
+      <div class="row">
+      <h1>My Profile</h1>
+      <!-- Center the users name and email -->
+      <div class="image d-flex flex-column justify-content-center align-items-center"><span class="name mt-3">{{ person.full_name }}</span><span class="email">@{{ person.username }}</span><span>Phone #: {{ person.phone }}</span>
+        <!-- Show users account balance -->  
+        <h>Account Balance: {{person.funds | usd}}</h>
+          <br>
+          <!-- Button to edit profile -->
+          <form action="/edit">
+              <input class="btn btn-dark" type="submit" value="Edit">
+          </form>
+          <div class="text mt-3"><span><h1>My Listings</h1> 
+            <!-- For loop to go through a users listings and show information -->
+                  {% for listing in listings %}
+                  <div class="col-sm">
+                      <div class="card mb-3">
+                          <img class="profile-card-img-top img-fluid" style="width: 18rem;" src="static/{{listing.image}}" alt="Product Image">
+                          <div class="card-block">
+                              <h4 class="card-title">{{listing.title}}</h4>
+                              <p class="card-text">{{listing.description}}</p>
+                              <p class="card-text">{{listing.decades}}</p>
+                              <p class="card-text">{{listing.size}}</p>
+                              <p class="price">{{listing.price | int | usd}}</p>
+                              {% if listing.active == 'True' %}
+                              <form action="/remove" method="post">
+                                  <input type="hidden" name="id" value="{{listing.id}}">
+                                  <input class="btn btn-dark" type="submit" value="Unlist">
+                              </form>
+                              {% endif %}
+                              {% if listing.active == "False" %}
+                                  <p class="card-text">Sold</p>
+                              {% endif %}
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+              </div>
+            </div>
+          </span></div>
+          <h1>My Purchases</h1> 
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Item Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- For loop to show a user's purchases -->
+              {% for transaction in purchases %}
+              <tr>
+                <td scope="row">{{transaction.item_name}}</td>
+                <td>{{transaction.price | usd}}</td>
+                <td>{{transaction.timestamp}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <!-- Form to input and update funds -->
+          <h1>Deposit Additional Funds</h1>
+          <form action="/deposit" method="post">
+              <div class="mb-3">
+                  <input autocomplete="off" class="form-control mx-auto w-auto" min="1" id="deposit" name="deposit" placeholder="Cash Amount" type="number">
+                  <button class="btn btn-dark" type="submit">Deposit</button>
+              </div>
+          </form>
+          <form action="/logout">
+            <input class="btn btn-dark" type="submit" value="Log Out">
+          </form>
+      </div>
+  </div>
+</div>
+{% endblock %}

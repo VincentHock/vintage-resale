@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+    <h1>Filter Search</h1>
+    <form action="/search" method="post">
+        <!-- Prompt for name to search -->
+        <div class="mb-3">
+            Name: <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="title" name="title" placeholder="Product Title" type="text">
+        </div>
+        <!-- Prompt for brand to search -->
+        <div class="mb-3">
+            Brand: <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="brand" name="brand" placeholder="Brand" type="text">
+        </div>
+        <!-- Prompt for minimum price to search -->
+        <div class="mb-3">
+            Minimum Price: <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="mnprice" name="mnprice" placeholder="Min. Price" type="text">
+        </div>
+        <!-- Prompt for maximum price to search -->
+        <div class="mb-3">
+            Maximum Price: <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="mxprice" name="mxprice" placeholder="Max. Price" type="text">
+        </div>
+        <!-- Prompt for size to search -->
+        <div class="mb-3">
+            Size: <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="size" name="size" placeholder="Size" type="text">
+        </div>
+        <!-- Prompt for type to search -->
+        <div class="mb-3">
+            Type: <select id="type" name="type">
+                <option selected>Any</option>
+                <option>Top</option>
+                <option>Bottom</option>
+                <option>Accessories</option>
+                <option>Undergarments</option>
+                <option>Shoes</option>
+                <option>Miscellaneous</option>
+            </select>
+        </div>
+        <!-- Prompt for colors to search -->
+        <div class="mb-3">
+            Color: <select id="color" name="color">
+                <option selected>Any</option>
+                <option>Red</option>
+                <option>Orange</option>
+                <option>Yellow</option>
+                <option>Green</option>
+                <option>Blue</option>
+                <option>Purple</option>
+                <option>White</option>
+                <option>Black</option>
+                <option>Rainbow</option>
+            </select>
+        </div>
+        <!-- Prompt for genres to search -->
+        <div class="mb-3">
+            Genre: <select id="genre" name="genre">
+                <option selected>Any</option>
+                <option>Music</option>
+                <option>Art</option>
+                <option>Sports</option>
+                <option>Movies</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <!-- Prompt for decade to search -->
+        <div class="mb-3">
+            Decade: <select id="decade" name="decade">
+                <option selected >Any</option>
+                <option>2020s</option>
+                <option>2010s</option>
+                <option>2000s</option>
+                <option>1990s</option>
+                <option>1980s</option>
+                <option>1970s</option>
+                <option>1960s</option>
+                <option>1950s</option>
+                <option>1940s</option>
+                <option>1930s</option>
+                <option>1920s</option>
+                <option>Pre-1920s</option>
+            </select>
+        </div>
+        <!-- Search button -->
+        <button class="btn btn-dark" type="submit">Search</button>
+    </form>
+{% endblock %}

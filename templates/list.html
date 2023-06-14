@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    List
+{% endblock %}
+
+{% block main %}
+    <h1>List </h1>
+    <!-- Prompt thhe user to list a new item -->
+    <form action="/list" method="post" enctype=multipart/form-data>
+        <!-- Prompt for image --> 
+        <div class="mb-3">
+            Image:
+            <br>
+            <input type="file" name="image">
+        </div>
+        <!-- Prompt for title -->
+        <div class="mb-3">
+            Title: <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="title" name="title" placeholder="Product Title" type="text">
+        </div>
+        <!-- Prompt for description -->
+        <div class="mb-3">
+            Description: <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="description" name="description" placeholder="Product Description" type="text">
+        </div>
+        <!-- Prompt for brand -->
+        <div class="mb-3">
+            Brand: <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="brand" name="brand" placeholder="Brand" type="text">
+        </div>
+        <!-- Prompt for price -->
+        <div class="mb-3">
+            Price: <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="price" name="price" placeholder="Price" type="text">
+        </div>
+        <!-- Prompt for size -->
+        <div class="mb-3">
+            Size: <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="size" name="size" placeholder="Size" type="text">
+        </div>
+        <!-- Prompt for type with given options -->
+        <div class="mb-3">
+            Type: <select id="type" name="type">
+                <option selected disabled>Product Type</option>
+                <option>Top</option>
+                <option>Bottom</option>
+                <option>Accessories</option>
+                <option>Undergarments</option>
+                <option>Shoes</option>
+                <option>Miscellaneous</option>
+            </select>
+        </div>
+        <!-- Prompt for color with given options -->
+        <div class="mb-3">
+            Color: <select id="color" name="color">
+                <option selected disabled>Primary Color</option>
+                <option>Red</option>
+                <option>Orange</option>
+                <option>Yellow</option>
+                <option>Green</option>
+                <option>Blue</option>
+                <option>Purple</option>
+                <option>White</option>
+                <option>Black</option>
+                <option>Rainbow</option>
+            </select>
+        </div>
+        <!-- Prompt for genre with given options -->
+        <div class="mb-3">
+            Genre: <select id="genre" name="genre">
+                <option selected disabled>Genre</option>
+                <option>Music</option>
+                <option>Art</option>
+                <option>Sports</option>
+                <option>Movies</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <!-- Prompt for decade with given options -->
+        <div class="mb-3">
+            Decade: <select id="decade" name="decade">
+                <option selected disabled>Decade</option>
+                <option>2020s</option>
+                <option>2010s</option>
+                <option>2000s</option>
+                <option>1990s</option>
+                <option>1980s</option>
+                <option>1970s</option>
+                <option>1960s</option>
+                <option>1950s</option>
+                <option>1940s</option>
+                <option>1930s</option>
+                <option>1920s</option>
+                <option>Pre-1920s</option>
+            </select>
+        </div>
+        <!-- Button to list an item -->
+        <button class="btn btn-dark" type="submit">List Item</button>
+    </form>
+{% endblock %}

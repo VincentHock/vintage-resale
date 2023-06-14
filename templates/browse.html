@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Browse
+{% endblock %}
+
+{% block main %}
+<!-- Browse Recent Listings -->
+<h1>Browse Recent Listings</h1>
+<div class="container">
+    <div class="row">
+        <!-- For loop that pulls from the SQL database and creates cards -->
+        {% for listing in listings %}
+        <div class="col-sm-3">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="static/{{listing.image}}" alt="Product Image">
+                <div class="card-body">
+                    <h4 class="card-title">{{listing.title}}</h4>
+                    <p class="card-text">{{listing.description}}</p>
+                    <p class="card-text">{{listing.decades}}</p>
+                    <p class="card-text">{{listing.size}}</p>
+                    <p class="price">{{listing.price | int | usd}}</p>
+                    <form action="/buy" method="post">
+                        <input type="hidden" name="id" value="{{listing.id}}">
+                        <input class="btn btn-dark" type="submit" value="Buy Now">
+                    </form>
+                    <br>
+                    <!-- Button that adds a card to your watchlist -->
+                    <form action="/watchlist" method="post">
+                        <input type="hidden" name="id" value="{{listing.id}}">
+                        <input class="btn btn-dark" type="submit" value="Add to Watchlist">
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
